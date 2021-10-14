@@ -1,0 +1,141 @@
+﻿@{
+    Layout = "~/Views/Shared/Template/_Layout.cshtml";
+}
+
+<div id="request" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                @*<div class="col-md-6 mb-3">
+
+                    </div>*@
+                <div class="col-xl-3 order-xl-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="request-form">
+                                <div class="form-header">
+                                    <h1>Make your request</h1>
+                                </div>
+                                <form class="needs-validation" id="formRequest" novalidate>
+                                    <div class="form-row">
+                                        @{ var iden = User.Identity.IsAuthenticated; }
+                                        @if (iden)
+                                        {
+                                            <div class="col-md mb-3">
+                                                <input type="text" readonly class="form-control" id="userid" value="@ViewBag.UserId" autocomplete="off" required>
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md mb-3">
+                                            <label for="jobtask">Job Task</label>
+                                            <input type="text" class="form-control" id="jobtask" placeholder="your job task" autocomplete="off" required>
+                                            <div class="invalid-feedback">
+                                                Please provide a valid job task.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md mb-3">
+                                            <label for="date">Date Overtime</label>
+                                            <div class="input-group date">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                                </div>
+                                                <input class="form-control datepicker" placeholder="Select date" type="text" id="dateOvertime" autocomplete="off" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide a valid date overtime.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="starttime">Start Time</label>
+                                            <select id="inputstarttime" name="starttime" class="form-control">
+                                                <option value="17:00">17:00</option>
+                                                <option value="18:00">18:00</option>
+                                                <option value="19:00">19:00</option>
+                                                <option value="20:00">20:00</option>
+                                                <option value="21:00">21:00</option>
+                                                <option value="22:00">22:00</option>
+                                                <option value="23:00">23:00</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Looks good!
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="endtime">End Time</label>
+                                            <select id="inputendtime" name="endtime" class="form-control">
+                                                <option value="18:00">18:00</option>
+                                                <option value="19:00">19:00</option>
+                                                <option value="20:00">20:00</option>
+                                                <option value="21:00">21:00</option>
+                                                <option value="22:00">22:00</option>
+                                                <option value="23:00">23:00</option>
+                                                <option value="24:00">24:00</option>
+                                            </select>
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md mb-3">
+                                            <label for="desc">Description</label>
+                                            <textarea id="desc" required="required" class="form-control" name="desc"></textarea>
+                                            <div class="invalid-feedback">
+                                                Please provide a valid job description.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" id="btnFIllReq" type="button">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-9 order-xl-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="table-wrap">
+                                <table class="table myaccordion table-hover" id="myTable">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <input type="checkbox" id="checkBoxAll" class="custom-checkbox" />
+                                            </th>
+                                            <th>UserId</th>
+                                            <th>JobTask</th>
+                                            <th>Date Overtime</th>
+                                            <th>StartTime</th>
+                                            <th>EndTime</th>
+                                            <th>Desc</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <button id="deletebtn" type="submit" value="Delete"
+                                    class="btn btn-sm btn-danger rounded-0">
+                                Delete
+                            </button>
+                            <button id="requestbtn" type="submit"
+                                    class="btn btn-sm btn-primary rounded-0">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/js/UserRequest.js"></script>
+
+}
